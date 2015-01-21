@@ -20,10 +20,16 @@ class CurrencyConverterTest < Minitest::Test
   def test_currency_can_equals
     usd_amount1 = Currency.new(33.24, "USD")
     usd_amount2 = Currency.new(33.24, "USD")
-    assert true, usd_amount1 == usd_amount2
-    eur_amt1 == Currency.new(20.50, "EUR")
-    eur_amt2 == Currency.new(22.50, "EUR")
-    assert false, eur_amt1 == eur_amt2
+    assert usd_amount1 == usd_amount2
+    eur_amt1 = Currency.new(20.50, "EUR")
+    eur_amt2 = Currency.new(22.50, "EUR")
+    refute eur_amt1 == eur_amt2
+  end
+
+  def test_currency_can_be_added
+    usd_amount1 = Currency.new(25.10, "USD")
+    usd_amount2 = Currency.new(24.90, "USD")
+    assert_equal 50.0, usd_amount1 + usd_amount2
   end
 
   def test_currency_can_be_subtracted

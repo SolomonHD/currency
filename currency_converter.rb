@@ -29,6 +29,15 @@ class Currency
 
   end
 
+  def + (added_currency)
+    if self.code  ==  currency_to_subtract.code
+      answer = self.amount + currency_to_subtract.amount
+      return answer
+    else
+      raise DifferentCurrencyCodeError
+    end 
+  end
+
   def - (currency_to_subtract)
     if self.code  ==  currency_to_subtract.code
         answer = self.amount - currency_to_subtract.amount

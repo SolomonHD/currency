@@ -29,13 +29,13 @@ class CurrencyConverterTest < Minitest::Test
   def test_currency_can_be_added
     usd_amount1 = Currency.new(25.10, "USD")
     usd_amount2 = Currency.new(24.90, "USD")
-    assert_equal 50.0, usd_amount1 + usd_amount2
+    assert_equal Currency.new(50.0, "USD"), usd_amount1 + usd_amount2
   end
 
   def test_currency_can_be_subtracted
     usd_amount1 = Currency.new(33.24, "USD")
     usd_amount2 = Currency.new(32.24, "USD")
-    assert_equal 1.0, usd_amount1 - usd_amount2
+    assert_equal Currency.new(1.0, "USD"), usd_amount1 - usd_amount2
   end
 
   def test_unlike_currency_cannot_subtract
@@ -46,6 +46,12 @@ class CurrencyConverterTest < Minitest::Test
     end
   end
 
+  def test_currency_converter_addition
+    usd_amount1 = CurrencyConverter.new(1.0, "USD")
+    eur_amount2 = CurrencyConverter.new(1.0, "EUR")
+    total = convert_currency(usd_amount1) + convert_currency(eur_amount2)
+    assert_equals 2.4, total
+  end
 #  def test_output_method
 #  end
 

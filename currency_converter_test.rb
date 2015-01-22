@@ -48,7 +48,7 @@ class CurrencyConverterTest < Minitest::Test
 
   def test_currency_converter_same_currency
     usd_amount1 = Currency.new(10.0, "USD")
-    assert convert_currency(Currency.new(10.0,"USD"), "USD") == usd_amount1
+    assert convert_currency.new(Currency.new(10.0,"USD"), "USD") == usd_amount1
   #  eur_amount = convert_currency(usd_amount1, "EUR")
   #  assert_equal 0.84, eur_amount
   end

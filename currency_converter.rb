@@ -54,13 +54,16 @@ class DifferentCurrencyCodeError < StandardError
 end
 
 class CurrencyConverter
+  RATE = {USD: 1.0,
+           EUR: 0.84,
+           JPN: 118}
 
-  def initialize (rates)
-    @rates = rates
-  end
+  #def initialize (rates)
+  #  @rates = rates
+  #end
 
   def convert_currency(currency_to_be_converted, target_code)
-    value = currency_to_be_converted.amount * rate[currency_to_be_converted.code]
-    return value
+    value = currency_to_be_converted.amount * [:currency_to_be_converted.code]
+    return Currency.new(value, target_code)
   end
 end
